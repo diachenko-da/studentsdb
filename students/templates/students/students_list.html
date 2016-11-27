@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="uk">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Сервіс Обліку Студентів</title>
+		<meta name="description" value="Система Обліку Студентів Навчального Закладу" />
+		<!-- Include Styles -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="./css/main.css">
+	</head>
+	<body>
+		
+		<!-- Start Container -->
+		<div class="container">
+
+			<!-- Start Header -->
+			<div class="row" id="header">
+
+				<!-- Logo -->
+				<div class="col-xs-8">
+					<h1>Сервіс Обліку Студентів</h1>
+				</div>
+
+				<!-- Groups Selector -->
+				<div class="col-xs-4" id="group-selector">
+					<strong>Група</strong>
+					<select>
+						<option value="">Усі Студенти</option>
+						<option value="">КСД-21, Дяченко Дмитро (№21)</option>
+						<option value="">КСД-22, Кустливий Анатолій (№27)</option>
+						<option value="">КСД-23, Кустливий Микола (№28)</option>
+					</select>
+				</div>
+			</div>
+			<!-- End Header -->
+
+			<!-- Start SubHeader -->
+			<div class="row" id="sub-header">
+				<div class="col-xs-12">
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a href="{% url "home" %}">Студенти</a></li>
+						<li role="presentation"><a href="/journal">Відвідування</a></li>
+						<li role="presentation"><a href="{% url "groups" %}">Групи</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- End SubHeader -->
+
+			<!-- Start Main Page Content -->
+			<div class="row" id="content-columns">
+				<div class="col-xs-12" id="content-column">
+					<!-- Status Message -->
+					<div class="alert alert-warning">Зміни скасовано.</div>
+					<h2>База студентів</h2>
+					<!-- Add Student Button -->
+					<a class="btn btn-primary" href="{% url "students_add" %}">Додати Студента.</a>
+					<!-- Start Students Listing -->
+					<table class="table table-hover table-striped">
+						<thead>
+							<tr>
+								<th>№</th>
+								<th>Фото</th>
+								<th>Прізвище &uarr;</th>
+								<th>Ім’я</th>
+								<th>№ Білету</th>
+								<th>Дії</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td><img src="./img/beavis-2.png" height="30" width="30" class="img-circle"></td>
+								<td><a href="{% url "students_edit" 1 %}">Дяченко</a></td>
+								<td><a href="{% url "students_edit" 1 %}">Дмитро</a></td>
+								<td>21</td>
+								<td>
+									<div class="dropdown">
+										<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія<span class="caret"></span></button>
+										<ul class="dropdown-menu" role="menu">
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="/journal/1">Відвідування</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="{% url "students_edit" 1 %}">Редагувати</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="{% url "students_delete" 1 %}">Видалити</a>
+											</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td><img src="./img/bart.jpg" height="30" width="30" class="img-circle"></td>
+								<td><a href="{% url "students_edit" 2 %}">Кустливий</a></td>
+								<td><a href="{% url "students_edit" 2 %}">Анатолій</a></td>
+								<td>27</td>
+								<td>
+									<div class="dropdown">
+										<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія<span class="caret"></span></button>
+										<ul class="dropdown-menu" role="menu">
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="/journal/2">Відвідування</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="{% url "students_edit" 2 %}">Редагувати</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="{% url "students_delete" 2 %}">Видалити</a>
+											</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td><img src="./img/butthead.jpg" height="30" width="30" class="img-circle"></td>
+								<td><a href="{% url "students_edit" 3 %}">Кустливий</a></td>
+								<td><a href="{% url "students_edit" 3 %}">Микола</a></td>
+								<td>28</td>
+								<td>
+									<div class="dropdown">
+										<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія<span class="caret"></span></button>
+										<ul class="dropdown-menu" role="menu">
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="/journal/3">Відвідування</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="{% url "students_edit" 3 %}">Редагувати</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="{% url "students_delete" 3 %}">Видалити</a>
+											</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<nav>
+				<ul class="pagination">
+					<li><a href="#">&laquo;</a></li>
+					<li><a href="#">1</a></li>
+					<li class="active"><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">&raquo;</a></li>
+				</ul>
+			</nav>
+			<!-- End Main Page Content -->
+
+			<!-- Start Footer -->
+			<div class="row" id="footer">
+				<div class="col-xs-12">
+					&copy; 2016 Сервіс Обліку Студентів
+				</div>
+			</div>
+			<!-- End Footer -->
+		</div>
+		<!-- End Container -->
+		<!-- Javascript Section -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+		integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+		crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</html>
