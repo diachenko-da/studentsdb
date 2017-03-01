@@ -4,7 +4,7 @@
 
 {% block meta_title %}Групи{% endblock meta_title %}
 
-{% block title %}База Студентів{% endblock title %}
+{% block title %}Список Груп{% endblock title %}
 
 {% block content %}
 <a href="{% url "groups_add" %}" class="btn btn-primary">Додати Групу</a>
@@ -23,8 +23,8 @@
 		{% for student in students %}
 		<tr>
 			<td>{{ forloop.counter }}</td>
-			<td><a href="{% url "groups_edit" student.id %}">{{ student.group }}</a></td>
-			<td><a href="{% url "students_edit" student.id %}">{{ student.last_name }} {{ student.first_name }}</a></td>
+			<td><a href="{% url "groups_edit" student.id %}">{{ student.title }}</a></td>
+			<td><a href="{% url "students_edit" student.id %}">{{ student.leader }}</a></td>
 			<td><div class="dropdown">
 					<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія<span class="caret"></span></button>
 					<ul class="dropdown-menu" role="menu">

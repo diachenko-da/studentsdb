@@ -1,0 +1,31 @@
+{% extends "students/base.html" %}
+
+{% block meta_title %}Іспити{% endblock meta_title %}
+
+{% block title %}Іспити{% endblock title %}
+
+{% block content %}
+<a href="{% url "exams_add" %}" class="btn btn-primary">Додати Іспит</a>
+<table class="table table-hover table-striped">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Предмет</th>
+			<th>Група</th>
+			<th>Викладач</th>
+			<th>Дата</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for student in students %}
+		<tr>
+			<td>{{ forloop.counter }}</td>
+			<td><a href="{% url "exams_edit" student.id %}">{{ student.subject }}</a></td>
+			<td>{{ student.group }}</td>
+			<td>{{ student.teacher}}</td>
+			<td>{{ student.date }}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+{% endblock content %}

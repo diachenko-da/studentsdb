@@ -18,6 +18,12 @@ urlpatterns = patterns('',
     # Journal url
     url(r'^journal/', 'students.views.journal', name='journal'),
     
+    # Exam url
+    url(r'^exams/$', 'students.views.exams_list', name='exams'),
+    url(r'^exams/add/$', 'students.views.exams_add', name='exams_add'),
+    url(r'^exams/(?P<eid>\d+)/edit/$', 'students.views.exams_edit', name='exams_edit'),
+    url(r'^exams/(?P<eid>\d+)/delete/$', 'students.views.exams_delete', name='exams_delete'),
+
     url(r'^admin/', include(admin.site.urls)),
 )
 

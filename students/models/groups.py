@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
-from .students import *
+from students import Student
 
 class Group(models.Model):
 	"""Group Model - Модель Групи"""
@@ -27,7 +27,7 @@ class Group(models.Model):
 
 	def __unicode__(self):
 		if self.leader:
-			return u"{0} ({1} {2})".format(self.title, self.leader, self.leader.first_name, self.leader.last_name)
+			return u"{} ({})".format(self.title, self.leader)
 
 		else:
-			return u"{0}".format(self.title)
+			return u"{}".format(self.title)
