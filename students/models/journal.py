@@ -7,6 +7,6 @@ class Journal(models.Model):
 	"""Journal Model - Модель Журналу Відвідування"""
 
 	class Meta(object):
-		verbose_name=u"Група"
+		verbose_name=u'Журнал'
 
 	# Продовження тут
